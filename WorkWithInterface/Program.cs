@@ -12,33 +12,15 @@ namespace WorkWithInterface
         static void Main(string[] args)
         {
         }
-        public interface IManager
+        public interface IWriter
         {
-            void Create();
-            void Read();
-            void Update();
-            void Delete();
+            void Write();
         }
-        public class Manager : IManager
+        public class Writer : IWriter
         {
-            public void Create()
+            void IWriter.Write()
             {
-
-            }
-
-            public void Read()
-            {
-
-            }
-
-            public void Update()
-            {
-
-            }
-
-            public void Delete()
-            {
-
+                Console.WriteLine("Явная реализация.");
             }
         }
     }
