@@ -11,14 +11,16 @@ namespace WorkWithInterface
     {
         static void Main(string[] args)
         {
+            Worker worker = new Worker();
+            ((IWorker)worker).Build();
         }
         public interface IWorker
         {
-            void Build();
+             void Build();
         }
         public class Worker : IWorker
         {
-            public void Build() { }
+            void IWorker.Build() { }
         }
     }
 }
