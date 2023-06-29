@@ -12,16 +12,13 @@ namespace WorkWithInterface
         static void Main(string[] args)
         {
         }
-        public interface IWriter
+        public interface IWorker
         {
-            void Write();
+            void Build();
         }
-        public class Writer : IWriter
+        public class Worker : IWorker
         {
-            void IWriter.Write()
-            {
-                Console.WriteLine("Явная реализация.");
-            }
+            public void Build() { }
         }
     }
 }
