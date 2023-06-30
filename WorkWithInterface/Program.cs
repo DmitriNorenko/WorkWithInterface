@@ -14,27 +14,23 @@ namespace WorkWithInterface
         {
 
         }
-        public interface ICreatable
+        public interface IBook
         {
-            void Create();
+            void Read();
         }
 
-        public interface IDeletable
+        public interface IDevice
         {
-            void Delete();
+            void TurnOn();
+            void TurnOff();
         }
-
-        public interface IUpdatable
+        class Books : IBook, IDevice
         {
-            void Update();
-        }
-        class Entity : ICreatable, IDeletable, IUpdatable
-        {
-            public void Create() { }
+            void IBook.Read() { }
 
-            public void Update() { }
+            void IDevice.TurnOn() { }
 
-            public void Delete() { }
+            void IDevice.TurnOff() { }
         }
     }
 }
