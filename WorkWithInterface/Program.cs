@@ -24,7 +24,7 @@ namespace WorkWithInterface
             void TurnOn();
             void TurnOff();
         }
-        class Books : IBook, IDevice
+        class ElectronicBook : IBook, IDevice
         {
             void IBook.Read() { }
 
