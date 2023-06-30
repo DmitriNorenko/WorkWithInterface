@@ -12,15 +12,15 @@ namespace WorkWithInterface
     {
         static void Main(string[] args)
         {
-            IUpdater<Account> updater = new Updater();
+            IUpdater<Account> updater = new Updater<User>();
         }
-        class Updater : IUpdater<User>
+        class Updater<V> : IUpdater<User>
         {
-            public void Update(User account) { }
+            public void Update(User user) { }
         }
         public interface IUpdater<in T>
         {
-            void Update(T entity);
+            void Update(T a);
         }
         public class User
         {
