@@ -12,25 +12,24 @@ namespace WorkWithInterface
     {
         static void Main(string[] args)
         {
+            IUpdater<Account> updater = new Updater();
+        }
+        class Updater : IUpdater<User>
+        {
+            public void Update(User account) { }
+        }
+        public interface IUpdater<in T>
+        {
+            void Update(T entity);
+        }
+        public class User
+        {
 
         }
-        public interface IBook
-        {
-            void Read();
-        }
 
-        public interface IDevice
+        public class Account : User
         {
-            void TurnOn();
-            void TurnOff();
-        }
-        class ElectronicBook : IBook, IDevice
-        {
-            void IBook.Read() { }
 
-            void IDevice.TurnOn() { }
-
-            void IDevice.TurnOff() { }
         }
     }
 }
