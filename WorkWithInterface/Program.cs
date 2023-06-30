@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,16 +12,25 @@ namespace WorkWithInterface
     {
         static void Main(string[] args)
         {
-            Worker worker = new Worker();
-            ((IWorker)worker).Build();
+            FileManager fileManager = new FileManager();
+            ((IFileReader)fileManager).ReadFile();
+            ((IFileWriter)fileManager).WriteFile();
+            ((IFileWriter)fileManager).ReadFile();
         }
-        public interface IWorker
+        public interface IFileReader
         {
-             void Build();
+            void ReadFile();
         }
-        public class Worker : IWorker
+        public interface IFileWriter
         {
-            void IWorker.Build() { }
+            void ReadFile();
+            void WriteFile();
+        }
+        class FileManager : IFileReader, IFileWriter
+        {
+            void IFileReader.ReadFile() { Console.WriteLine("IFileReader.ReadFile"); }
+            void IFileWriter.WriteFile() { Console.WriteLine("IFileWriter.WriteFile"); }
+            void IFileWriter.ReadFile() { Console.WriteLine("IFileWriter.ReadFile()"); }
         }
     }
 }
