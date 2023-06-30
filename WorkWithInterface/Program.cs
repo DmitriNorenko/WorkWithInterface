@@ -12,25 +12,29 @@ namespace WorkWithInterface
     {
         static void Main(string[] args)
         {
-            FileManager fileManager = new FileManager();
-            ((IFileReader)fileManager).ReadFile();
-            ((IFileWriter)fileManager).WriteFile();
-            ((IFileWriter)fileManager).ReadFile();
+
         }
-        public interface IFileReader
+        public interface ICreatable
         {
-            void ReadFile();
+            void Create();
         }
-        public interface IFileWriter
+
+        public interface IDeletable
         {
-            void ReadFile();
-            void WriteFile();
+            void Delete();
         }
-        class FileManager : IFileReader, IFileWriter
+
+        public interface IUpdatable
         {
-            void IFileReader.ReadFile() { Console.WriteLine("IFileReader.ReadFile"); }
-            void IFileWriter.WriteFile() { Console.WriteLine("IFileWriter.WriteFile"); }
-            void IFileWriter.ReadFile() { Console.WriteLine("IFileWriter.ReadFile()"); }
+            void Update();
+        }
+        class Entity : ICreatable, IDeletable, IUpdatable
+        {
+            public void Create() { }
+
+            public void Update() { }
+
+            public void Delete() { }
         }
     }
 }
